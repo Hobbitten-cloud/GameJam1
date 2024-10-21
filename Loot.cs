@@ -18,6 +18,7 @@ namespace gamejam1
         public int Vitality { get; }
         public int Faith { get; }
         public int Intelligence { get; }
+        public int Charisma { get; }
 
         public int Stability { get; }
 

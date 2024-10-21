@@ -46,7 +46,7 @@ namespace gamejam1
                 case "1":
                     {
                         // Starts the game up
-
+                        PathSelectionMenu();
                         break;
                     }
                 case "2":
@@ -87,14 +87,20 @@ namespace gamejam1
         }
         public void PathSelectionMenu()
         {
-            Room room = new Room();
-            Console.Clear();
+            //Room room = new Room();
+            //Console.Clear();
 
-            // Menu questions
+            //// Information from room class to be displayed
+            //room.RoomNames();
+            //room.RoomInfo();
+
+            // Path selection - Left, Right, Middle
             Console.WriteLine();
             Console.Write("Select your path");
             Console.WriteLine();
-            room.RoomNames();
+            Console.WriteLine("1: Left");
+            Console.WriteLine("2: Right");
+            Console.WriteLine("3: Middle");
             Console.WriteLine();
             Console.Write("Write here: ");
             string userInput = Console.ReadLine();
@@ -105,30 +111,19 @@ namespace gamejam1
             {
                 case "1":
                     {
-                        // Starts the game up
+                        // Left
 
                         break;
                     }
                 case "2":
                     {
-                        // Shows the credit for made the game
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("a 2 day game jam project ");
-                        Console.WriteLine("The game was created by the following people");
-                        Console.ResetColor();
-                        Console.WriteLine();
-                        Console.WriteLine("Nicklas, Elias, Dennis, Ali, Emil, Benjamin");
-                        Console.WriteLine();
-                        Console.Write("Press any key to continue: ");
-                        Console.ReadKey();
-                        Console.Clear();
-                        MainMenu();
+                        // Right
                         break;
                     }
                 case "3":
                     {
-                        // Quits the program
-                        return;
+                        // Middle
+                        break;
                     }
                 default:
                     {
@@ -140,7 +135,7 @@ namespace gamejam1
                         Console.Write("Press any key to continue: ");
                         Console.ReadKey();
                         Console.Clear();
-                        MainMenu();
+                        PathSelectionMenu();
                         break;
                     }
             }

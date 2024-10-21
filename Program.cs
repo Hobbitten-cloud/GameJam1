@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            Console.WriteLine("Gamejam test");
+            Menu menu = new Menu();
+            menu.MainMenu();
 
 
 

@@ -8,5 +8,6 @@ namespace gamejam1
 {
     internal class Quiz
     {
+
     }
 }

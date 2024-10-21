@@ -10,8 +10,18 @@ namespace gamejam1
     {
         public string Name { get; }
         public string Description { get; }
-        public int Quiz { get; }
-        public List<Enemy> Enemys { get; }
+        public Quiz Quiz { get; }
+        public List<Enemy> Enemies { get; }
         public List<Loot> LootPile { get; }
+
+
+        public Trial(string name, string description, Quiz quiz, List<Enemy> enemies, List<Loot> lootPile)
+        {
+            Name = name;
+            Description = description;
+            Quiz = quiz;
+            Enemies = enemies;
+            LootPile = lootPile;
+        }
     }
 }

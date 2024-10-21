@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace gamejam1
 {
-    internal class Room
+    public class Room
     {
+        public List<Trial> Trial { get; }
+        public int Index { get; set; }
+        public string RoomId { get; }
+        public string Obstacle {  get; }
+
+        public Room (List<Trial> trial, int index, string roomId, string obstacle)
+        {
+            Trial = trial;
+            Index = index;
+            RoomId = roomId;
+            Obstacle = obstacle;
+        } 
     }
 }

@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace gamejam1
 {
-    internal class Controller
+    public class Controller
     {
+        public Menu Menu { get; } 
+        public Floor FloorObjective {  get; }
+        public Player PlayerOjective { get; }
+
+        public Controller (Menu menu, Floor floorObjective, Player playerOjective)
+        {
+            Menu = menu;
+            FloorObjective = floorObjective;
+            PlayerOjective = playerOjective;
+        }
     }
 }

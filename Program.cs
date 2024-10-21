@@ -10,7 +10,7 @@ namespace gamejam1
 
             List<Room> rooms = new List<Room>();
 
-            rooms.Add(new Room(new Trial(),0,"Room 1:", "Hej?"));
+            rooms.Add(new Room(new Trial("Abe?","Leg",new Quiz(),new Enemy(),new Loot()),0,"Room 1:", "Hej?"));
 
 
 

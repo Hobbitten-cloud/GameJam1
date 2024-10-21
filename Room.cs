@@ -20,6 +20,7 @@ namespace gamejam1
                 "Room 5:",
                 "Room 6:"
             ];
+            Console.WriteLine(roomName[0]);
         }
 
         public void RoomInfo()
@@ -34,7 +35,7 @@ namespace gamejam1
                     "Bob",
                     "Nicklas"
             ];
-
+            Console.WriteLine(roomInfo[0]);
         }
     }
 }

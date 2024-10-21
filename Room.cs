@@ -9,16 +9,13 @@ namespace gamejam1
     public class Room
     {
         public Trial Trial { get; }
-        public int Index { get; set; }
-        public string RoomId { get; }
-        public string Obstacle {  get; }
 
-        public Room (Trial trial, int index, string roomId, string obstacle)
+        public string RoomId { get; }
+
+        public Room (Trial trial, string roomId)
         {
             Trial = trial;
-            Index = index;
             RoomId = roomId;
-            Obstacle = obstacle;
         } 
     }
 }

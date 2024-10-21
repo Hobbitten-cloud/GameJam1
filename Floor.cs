@@ -9,9 +9,9 @@ namespace gamejam1
     public class Floor
     {
         public int Number { get; }
-        public List<Room> Rooms { get; }
+        public Room[,] Rooms { get; }
 
-        public Floor(int number, List<Room> rooms)
+        public Floor(int number, Room[,] rooms)
         {
             Number = number;
             Rooms = rooms;

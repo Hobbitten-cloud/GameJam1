@@ -11,16 +11,16 @@ namespace gamejam1
         public string Name { get; }
         public string Description { get; }
         public Quiz Quiz { get; }
-        public List<Enemy> Enemies { get; }
-        public List<Loot> LootPile { get; }
+        public Enemy Enemie { get; }
+        public Loot LootPile { get; }
 
 
-        public Trial(string name, string description, Quiz quiz, List<Enemy> enemies, List<Loot> lootPile)
+        public Trial(string name, string description, Quiz quiz, Enemy enemie, Loot lootPile)
         {
             Name = name;
             Description = description;
             Quiz = quiz;
-            Enemies = enemies;
+            Enemie = enemie;
             LootPile = lootPile;
         }
     }

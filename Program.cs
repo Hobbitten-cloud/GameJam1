@@ -8,8 +8,13 @@ namespace gamejam1
         {
             // Instanser 
             Player bob = new Player("bob", 5, "sword", "", true, 10, 10, 5, 2, 1, 2);
-            Quiz question1 = new Quiz("How many hands does a human have?", "1", "2", "4", 1);
+
+            // Questions
+            Quiz question1 = new Quiz("How many hands does a human have?", "1", "2", "4", 2);
+
+            // Enemies
             Enemy skeleton = new Enemy("Skeleton", 10, "1", "", true);
+
 
             List<Room> rooms = new List<Room>();
 

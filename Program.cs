@@ -6,15 +6,20 @@ namespace gamejam1
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            menu.MainMenu();
+            Player bob = new Player("bob", 5, "sword", "", true, 10, 10, 5, 2, 1, 2);
+
+            List<Room> rooms = new List<Room>();
+
+            rooms.Add(new Room(new Trial(),0,"Room 1:", "Hej?"));
+
+
+
+            Controller controller = new Controller(new Menu(), new Floor(0, rooms), bob);
+
+
+            controller.Menu.MainMenu();
 
         }
-
-        public Controller Controller { get; }
-
-        public Program (Controller controller)
-        {  Controller = controller; }
 
     }
 }

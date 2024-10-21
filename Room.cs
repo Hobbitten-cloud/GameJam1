@@ -9,14 +9,14 @@ namespace gamejam1
     public class Room
     {
         // Room names
-        string[] roomName = 
+        string[] roomName =
         [
-            "Room 1:", 
-            "Room 2:", 
-            "Room 3:", 
-            "Room 4:", 
-            "Room 5:", 
-            "Room 6:"Ádd
+            "Room 1:",
+            "Room 2:",
+            "Room 3:",
+            "Room 4:",
+            "Room 5:",
+            "Room 6:"
         ];
 
         // Room information

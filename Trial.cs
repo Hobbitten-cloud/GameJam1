@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gamejam1
 {
-    internal class Trial
+    public class Trial
     {
     }
 }

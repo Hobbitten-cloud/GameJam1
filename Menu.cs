@@ -89,22 +89,6 @@ namespace gamejam1
         {
             Console.Clear();
 
-            // Room names
-            string[] roomName = ["Room 1:", "Room 2:", "Room 3:", "Room 4:", "Room 5:", "Room 6:"];
-
-            // Room information
-            string[] roomInfo = 
-            [
-                "You are trapped. \nOn the left there is a room full of gold", 
-                "Linda", 
-                "Ida", 
-                "Jonas", 
-                "Bob", 
-                "Nicklas"
-            ];
-
-
-
             // Menu questions
             Console.WriteLine();
             Console.Write("Please select 1 of the following options");

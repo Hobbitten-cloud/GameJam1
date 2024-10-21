@@ -87,15 +87,14 @@ namespace gamejam1
         }
         public void PathSelectionMenu()
         {
+            Room room = new Room();
             Console.Clear();
 
             // Menu questions
             Console.WriteLine();
-            Console.Write("Please select 1 of the following options");
+            Console.Write("Select your path");
             Console.WriteLine();
-            Console.WriteLine("1: Start Game");
-            Console.WriteLine("2: Credits");
-            Console.WriteLine("3: Quit");
+            room.RoomNames();
             Console.WriteLine();
             Console.Write("Write here: ");
             string userInput = Console.ReadLine();

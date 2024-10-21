@@ -8,12 +8,11 @@ namespace gamejam1
 {
     
 
-    internal class Loot
+    public class Loot
     {
         public string Name { get; }
         public string Art { get; }
         public bool IsKey { get; }
-
         public int Strength { get; }
         public int Vitality { get; }
         public int Faith { get; }
@@ -32,7 +31,5 @@ namespace gamejam1
             Intelligence = intelligence;
             Stability = stability;
         }
-
-
     }
 }

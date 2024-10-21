@@ -14,11 +14,16 @@ namespace gamejam1
 
             // Enemies
             Enemy skeleton = new Enemy("Skeleton", 10, "1", "", true);
+            List<Enemy> enemyList = [skeleton];
+
+            // Loot
+            Loot loot1 = new Loot("Excalibur", "", true, 1, 1, 3, 2, 5);
+            List<Loot> lootList = [loot1];
 
 
-            List<Room> rooms = new List<Room>();
+            List <Room> rooms = new List<Room>();
 
-            rooms.Add(new Room(new Trial("Abe?", "Leg", question1, skeleton, new Loot()), 0, "Room 1:", "Hej?"));
+            rooms.Add(new Room(new Trial("Abe?", "Leg", question1, enemyList, lootList), 0, "Room 1:", "Hej?"));
 
 
             Controller controller = new Controller(new Menu(), new Floor(0, rooms), bob);
@@ -27,6 +32,5 @@ namespace gamejam1
             controller.Menu.MainMenu();
 
         }
-
     }
 }

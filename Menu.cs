@@ -87,12 +87,12 @@ namespace gamejam1
         }
         public void PathSelectionMenu()
         {
-            Room room = new Room();
-            Console.Clear();
+            //Room room = new Room();
+            //Console.Clear();
 
-            // Information from room class to be displayed
-            room.RoomNames();
-            room.RoomInfo();
+            //// Information from room class to be displayed
+            //room.RoomNames();
+            //room.RoomInfo();
 
             // Path selection - Left, Right, Middle
             Console.WriteLine();

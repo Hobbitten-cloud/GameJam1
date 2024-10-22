@@ -12,7 +12,10 @@ namespace gamejam1
     {
         public string MainMenu()
         {
-            Console.Clear();
+            string result = "";
+            while (result == "")
+            {
+                Console.Clear();
 
             // Main title of the game
             Console.ForegroundColor = ConsoleColor.Green;
@@ -40,12 +43,10 @@ namespace gamejam1
             Console.WriteLine();
             Console.Write("Write here: ");
             string userInput = Console.ReadLine().ToLower();
-            Console.Clear();
+            //Console.Clear();
 
             // switch case based of the userinput
-            string result = "";
-            while (result == "")
-            {
+            
                 switch (userInput)
                 {
                     case "1":
@@ -78,7 +79,7 @@ namespace gamejam1
                             Console.WriteLine();
                             Console.Write("Press any key to continue: ");
                             Console.ReadKey();
-                            Console.Clear();
+                            //Console.Clear();
 
                             break;
                         }
@@ -154,6 +155,9 @@ namespace gamejam1
                         Console.WriteLine("Ups! \nWrong input, please select a valid option.");
                         Console.ResetColor();
                         Console.WriteLine();
+                        Console.Write("Press any key to continue: ");
+                        Console.ReadKey();
+                        //Console.Clear();
                     }
                 }
 

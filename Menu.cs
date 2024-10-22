@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace gamejam1
 {
-    // Test
+    // Another test
     public class Menu
     {
         public string MainMenu()

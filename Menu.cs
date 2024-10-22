@@ -149,9 +149,11 @@ namespace gamejam1
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine();
                         Console.WriteLine("Oops! Wrong input, please select a valid option.");
                         Console.ResetColor();
-                        Console.WriteLine("Press any key to try again...");
+                        Console.WriteLine();
+                        Console.Write("Press any key to try again...");
                         Console.ReadKey();
                         Console.Clear();
                         Console.WriteLine(quiz.Spørgmål);

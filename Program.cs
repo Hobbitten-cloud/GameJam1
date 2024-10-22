@@ -141,12 +141,6 @@ namespace gamejam1
                 }
             }
 
-
-
-
-
-
-
             while (startGame)
             {
                 if (controller.PlayerX == 2 && controller.PlayerY == 2)
@@ -187,12 +181,7 @@ namespace gamejam1
                 }
                 
             }
-
-
-
             controller.Menu.End();
-
-
         }
     }
 }

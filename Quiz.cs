@@ -9,7 +9,6 @@ namespace gamejam1
     public class Quiz
     {
        public string Spørgmål { get; }
-
        public string Svar_1 {  get; }
        public string Svar_2 {  get; }
        public string Svar_3 { get; }
@@ -24,8 +23,5 @@ namespace gamejam1
             Rigtigsvar = rigtigsvar;
 
         }
-
-
-
     }
 }

@@ -14,7 +14,6 @@ namespace gamejam1
         public Enemy Enemie { get; }
         public Loot LootPile { get; }
 
-
         public Trial(string name, string description, Quiz quiz, Enemy enemie, Loot lootPile)
         {
             Name = name;

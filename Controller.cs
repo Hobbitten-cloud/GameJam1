@@ -11,10 +11,8 @@ namespace gamejam1
         public Menu Menu { get; } 
         public Floor FloorObjective {  get; }
         public Player PlayerOjective { get; }
-
         public int PlayerX { get; set; }
         public int PlayerY { get; set; }
-
         public Room PlayerRoom{ get; set; }
 
         public Controller (Menu menu, Floor floorObjective, Player playerOjective)
@@ -61,6 +59,5 @@ namespace gamejam1
             PlayerRoom = FloorObjective.Rooms[PlayerX, PlayerY];
             FloorObjective.Rooms[PlayerX, PlayerY].Ca = "O";
         }
-
     }
 }

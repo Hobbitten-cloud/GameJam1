@@ -34,40 +34,37 @@ namespace gamejam1
                 Console.WriteLine("You just got yourself a new dungeon RPG game. You decided to play it and where you meet enemies and puzzles.");
                 Console.WriteLine("But suddenly the game wont close and you are trapped. You need to find a way out of this simulation");
 
-            // Menu questions
-            Console.WriteLine();
-            Console.Write("Please select 1 of the following options");
-            Console.WriteLine();
-            Console.WriteLine("1: Start Game");
-            Console.WriteLine("2: Credits");
-            Console.WriteLine("3: Quit");
-            Console.WriteLine();
-            Console.Write("Write here: ");
-            string userInput = Console.ReadLine().ToLower();
+                // Menu questions
+                Console.WriteLine();
+                Console.Write("Please select 1 of the following options");
+                Console.WriteLine();
+                Console.WriteLine("1: Start Game");
+                Console.WriteLine("2: Credits");
+                Console.WriteLine("3: Quit");
+                Console.WriteLine();
+                Console.Write("Write here: ");
+                string userInput = Console.ReadLine().ToLower();
 
-            // switch case based of the userinput
-            
+                // switch case based of the userinput
                 switch (userInput)
                 {
                     case "1":
                         {
-
                             result = "StartGame";
                             // Starts the game up
-
                             break;
                         }
                     case "2":
                         {
                             result = "Credit";
                             // Shows the credit for made the game
-
                             break;
                         }
                     case "3":
                         {
                             result = "Quit";
-                            // Quits the program
+
+                            // Quits the program but you cant until you completed it by reaching 2,2
                             Console.WriteLine();
                             Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("--------------------------------");
@@ -79,7 +76,6 @@ namespace gamejam1
                             Console.Write("RETURN TO THE GAME BY PRESSING ANY KEY! ");
                             Console.ResetColor();
                             Console.ReadKey();
-
                             //Environment.Exit(0);                   
                             break;                                   
                         }                                            
@@ -91,8 +87,6 @@ namespace gamejam1
                             Console.WriteLine("Ups! \nWrong input, please select again");
                             Console.ResetColor();
                             Console.WriteLine();
-                            
-
                             break;
                         }
                 }
@@ -102,6 +96,7 @@ namespace gamejam1
 
         public void End()
         {
+            // Exit game
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("--------------------------------");
@@ -114,7 +109,6 @@ namespace gamejam1
             Console.ReadKey();
             Environment.Exit(0);
         }
-
 
         public bool Question(Room playerRoom, int playerX, int playerY, Floor floor)
         {
@@ -135,11 +129,11 @@ namespace gamejam1
 
                 // Create a list of available options
                 List<string> answers = new List<string>
-        {
-            quiz.Svar_1,
-            quiz.Svar_2,
-            quiz.Svar_3
-        };
+                {
+                    quiz.Svar_1,
+                    quiz.Svar_2,
+                    quiz.Svar_3
+                };
 
                 // Show all options
                 for (int i = 0; i < answers.Count; i++)
@@ -182,18 +176,16 @@ namespace gamejam1
 
                 // Switch based on the valid input selection
                 string selectedAnswer = answers[selection - 1];
-                
+
                 if (quiz.Rigtigsvar == selection)
                 {
                     result = true;
-                }else
+                }
+                else
                 {
                     result = false;
                 }
-                
-                 
             }
-            
             return result;
         }
 
@@ -204,22 +196,18 @@ namespace gamejam1
             {
                 Console.Clear();
                 
-
                 // Create a list of available options
                 List<string> awnsers = new List<string>();
 
                 // Add quiz options if a trial exists in the current room
                 if (floor.Rooms[playerX, playerY].Trial.Quiz != null)
                 {
-
                     // Display the question
                     Console.WriteLine(floor.Rooms[playerX, playerY].Trial.Quiz.Spørgmål);
                     // Add quiz options
                     awnsers.Add(floor.Rooms[playerX, playerY].Trial.Quiz.Svar_1);
                     awnsers.Add(floor.Rooms[playerX, playerY].Trial.Quiz.Svar_2);
                     awnsers.Add(floor.Rooms[playerX, playerY].Trial.Quiz.Svar_3);
-
-                    
 
                     // Show all options including movement and quiz answers
                     for (int i = 0; i < awnsers.Count; i++)
@@ -259,15 +247,11 @@ namespace gamejam1
                     options.Add("Move Down");
                 }
 
-
-
                 // Show the available movement options
                 for (int i = 0; i < options.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}: {options[i]}");
                 }
-
-
 
                 // Render the minimap
                 Console.WriteLine();
@@ -348,12 +332,7 @@ namespace gamejam1
                         break;
                 }
             }
-
             return result;
         }
-
-
-
-
     }
 }

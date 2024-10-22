@@ -168,10 +168,10 @@ namespace gamejam1
                     case "Move Right":
                         result = "MoveRight";
                         break;
-                    case "Move Forward":
+                    case "Move Up":
                         result = "MoveUp";
                         break;
-                    case "Move Backward":
+                    case "Move Down":
                         result = "MoveDown";
                         break;
                     default:

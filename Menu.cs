@@ -116,11 +116,11 @@ namespace gamejam1
                 }
                 if (playerY > 0 && floor.Rooms[playerX, playerY - 1] != null)
                 {
-                    options.Add("Move Forward");
+                    options.Add("Move Up");
                 }
                 if (playerY < maxY && floor.Rooms[playerX, playerY + 1] != null)
                 {
-                    options.Add("Move Backward");
+                    options.Add("Move Down");
                 }
 
                 // Show the options to the player
@@ -169,10 +169,10 @@ namespace gamejam1
                         result = "MoveRight";
                         break;
                     case "Move Forward":
-                        result = "MoveForward";
+                        result = "MoveUp";
                         break;
                     case "Move Backward":
-                        result = "MoveBackward";
+                        result = "MoveDown";
                         break;
                     default:
                         // Fallback in case something unexpected happens (this should not happen due to validation)

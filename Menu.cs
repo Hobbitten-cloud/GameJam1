@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace gamejam1
 {
-    // Another test
     public class Menu
     {
         public string MainMenu()

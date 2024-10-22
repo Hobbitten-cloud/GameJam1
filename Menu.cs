@@ -15,7 +15,7 @@ namespace gamejam1
             string result = "";
             while (result == "")
             {
-                Console.Clear();
+            Console.Clear();
 
             // Main title of the game
             Console.ForegroundColor = ConsoleColor.Green;
@@ -77,9 +77,7 @@ namespace gamejam1
                             Console.WriteLine("Ups! \nWrong input, please select again");
                             Console.ResetColor();
                             Console.WriteLine();
-                            Console.Write("Press any key to continue: ");
-                            Console.ReadKey();
-                            //Console.Clear();
+                            
 
                             break;
                         }
@@ -93,6 +91,8 @@ namespace gamejam1
             string result = "";
             while (result == "")
             {
+                Console.Clear();
+
                 int maxX = floor.Rooms.GetLength(0) - 1;  // Adjust max index for zero-based arrays
                 int maxY = floor.Rooms.GetLength(1) - 1;
 
@@ -140,7 +140,7 @@ namespace gamejam1
                     Console.WriteLine();
                     Console.Write("Write here: ");
                     userInput = Console.ReadLine();
-                    //Console.Clear();
+                    
 
                     // Try parsing the user input directly
                     if (int.TryParse(userInput, out selection) && selection > 0 && selection <= options.Count)
@@ -156,8 +156,6 @@ namespace gamejam1
                         Console.ResetColor();
                         Console.WriteLine();
                         Console.Write("Press any key to continue: ");
-                        Console.ReadKey();
-                        //Console.Clear();
                     }
                 }
 

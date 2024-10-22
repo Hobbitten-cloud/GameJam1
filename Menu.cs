@@ -34,20 +34,19 @@ namespace gamejam1
                 Console.WriteLine("You just got yourself a new dungeon RPG game. You decided to play it and where you meet enemies and puzzles.");
                 Console.WriteLine("But suddenly the game wont close and you are trapped. You need to find a way out of this simulation");
 
-                // Menu questions
-                Console.WriteLine();
-                Console.Write("Please select 1 of the following options");
-                Console.WriteLine();
-                Console.WriteLine("1: Start Game");
-                Console.WriteLine("2: Credits");
-                Console.WriteLine("3: Quit");
-                Console.WriteLine();
-                Console.Write("Write here: ");
-                string userInput = Console.ReadLine().ToLower();
-                //Console.Clear();
+            // Menu questions
+            Console.WriteLine();
+            Console.Write("Please select 1 of the following options");
+            Console.WriteLine();
+            Console.WriteLine("1: Start Game");
+            Console.WriteLine("2: Credits");
+            Console.WriteLine("3: Quit");
+            Console.WriteLine();
+            Console.Write("Write here: ");
+            string userInput = Console.ReadLine().ToLower();
 
-                // switch case based of the userinput
-
+            // switch case based of the userinput
+            
                 switch (userInput)
                 {
                     case "1":
@@ -69,16 +68,30 @@ namespace gamejam1
                         {
                             result = "Quit";
                             // Quits the program
-                            break;
-                        }
-                    default:
-                        {
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine("YOU ARE STUCK HERE!");
+                            Console.WriteLine("YOU CANNOT ESCAPE THE SIMULATION");
+                            Console.WriteLine("COMPLETE THE GAME TO ESCAPE!");
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine();
+                            Console.Write("RETURN TO THE GAME BY PRESSING ANY KEY! ");
+                            Console.ResetColor();
+                            Console.ReadKey();
+
+                            //Environment.Exit(0);                   
+                            break;                                   
+                        }                                            
+                    default:                                         
+                        {                                            
                             // Incase the user makes a miss input
+                            Console.WriteLine();
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Ups! \nWrong input, please select again");
                             Console.ResetColor();
                             Console.WriteLine();
-
+                            
 
                             break;
                         }
@@ -136,9 +149,11 @@ namespace gamejam1
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine();
                         Console.WriteLine("Oops! Wrong input, please select a valid option.");
                         Console.ResetColor();
-                        Console.WriteLine("Press any key to try again...");
+                        Console.WriteLine();
+                        Console.Write("Press any key to try again...");
                         Console.ReadKey();
                         Console.Clear();
                         Console.WriteLine(quiz.Spørgmål);

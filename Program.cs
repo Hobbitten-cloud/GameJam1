@@ -8,10 +8,11 @@ namespace gamejam1
         {
             // TODO LIST
             // 1: Tjek for om man kan gå i den retning man vil baseret på de rum vi har i koordinat systemet // COMPLETE
-            // 2: Gøre brug af vores Spørgsmål / trivia // NOT COMPLETED
-            // 3.1: Gøre brug af vores Loot system // NOT COMPLETED
-            // 3.2: Gøre brug af vores enemy system // NOT COMPLETED
-            // 4: Går at vi kan dø og restart spillet // NOT COMPLETED
+            // 2: Add minimap
+            // 3: Gøre brug af vores Spørgsmål / trivia // NOT COMPLETED
+            // 4.1: Gøre brug af vores Loot system // NOT COMPLETED
+            // 4.2: Gøre brug af vores enemy system // NOT COMPLETED
+            // 5: Går at vi kan dø og restart spillet // NOT COMPLETED
 
 
             // Player

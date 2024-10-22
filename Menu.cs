@@ -186,8 +186,6 @@ namespace gamejam1
                         Console.WriteLine("Ups! \nWrong input, please select a valid option.");
                         Console.ResetColor();
                         Console.WriteLine();
-                        Console.Write("Press any key to continue: ");
-                        Console.ReadKey();
                     }
                 }
 

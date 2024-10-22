@@ -158,7 +158,7 @@ namespace gamejam1
                 while (!(controller.Menu.Question(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective)))
                 {
                 }
-                if (controller.PlayerX == 2 && controller.PlayerY == 2)
+                if (controller.PlayerX == 2 && controller.PlayerY == 3)
                 {
                     startGame = false;
                     break;

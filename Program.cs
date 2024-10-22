@@ -187,7 +187,11 @@ namespace gamejam1
                 }
                 
             }
-            
+
+
+
+            controller.Menu.End();
+
 
         }
     }

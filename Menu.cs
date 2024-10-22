@@ -100,6 +100,22 @@ namespace gamejam1
             return result;
         }
 
+        public void End()
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("YOU ARE FREE!");
+            Console.WriteLine("NOW DO YOUR HOMEWORK");
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine();
+            Console.Write("EXIT THE GAME BY PRESSING ANY KEY! ");
+            Console.ResetColor();
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+
+
         public bool Question(Room playerRoom, int playerX, int playerY, Floor floor)
         {
             bool result = false;

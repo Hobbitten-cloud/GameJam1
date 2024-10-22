@@ -116,6 +116,7 @@ namespace gamejam1
                         }
                     case "Credit":
                         {
+                            Console.Clear();
 
                             // Shows the credit for made the game
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -143,10 +144,15 @@ namespace gamejam1
 
 
 
+
+
             while (startGame)
             {
+                while (!(controller.Menu.Question(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective)))
+                {
+                }
                 // switch case based of the userinput
-                switch (controller.Menu.PathSelectionMenu(controller.PlayerRoom,controller.PlayerX,controller.PlayerY,controller.FloorObjective))
+                switch (controller.Menu.PathSelectionMenu(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective))
                 {
                     case "MoveLeft":
                         {
@@ -174,8 +180,8 @@ namespace gamejam1
                         }
 
                 }
-            }
 
+            }
 
         }
     }

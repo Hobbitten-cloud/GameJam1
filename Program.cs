@@ -62,7 +62,7 @@ namespace gamejam1
 
             //Room 3
             // Question
-            Quiz question3 = new Quiz("What is a string?", "Food", "An animal", "A code part", 3);
+            Quiz question3 = new Quiz("What is an integer?", "A monkey?", "A way to show text", "A way to show numbers", 3);
             // Enemy
             Enemy Spider = new Enemy("Spider", 8, 2, "", true);
             // Loot

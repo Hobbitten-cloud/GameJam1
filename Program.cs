@@ -160,13 +160,13 @@ namespace gamejam1
                             controller.MoveRight();
                             break;
                         }
-                    case "MoveForward":
+                    case "MoveUp":
                         {
                             // Forward
                             controller.MoveForward();
                             break;
                         }
-                    case "MoveBackward":
+                    case "MoveDown":
                         {
                             // Backward
                             controller.MoveBackward();

@@ -94,12 +94,12 @@ namespace gamejam1
             {
                 Console.Clear();
 
-                var quiz = floor?.Rooms[playerX, playerY]?.Trial?.Quiz;
+                Quiz quiz = floor.Rooms[playerX, playerY].Trial.Quiz;
                 if (quiz == null)
                 {
                     Console.WriteLine("No quiz available in this room.");
                     // Handle accordingly, e.g., return or set a default result
-                    return false;
+                    return true;
                 }
 
                 Console.WriteLine(quiz.Spørgmål);

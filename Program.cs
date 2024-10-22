@@ -93,7 +93,7 @@ namespace gamejam1
 
             //Room 2,2
             // Question
-            Quiz question6 = new Quiz("Who is the god of the underworld in greek mythology", "Poseidon", "Hades", "Apollo", 2);
+            Quiz question6 = new Quiz("What does a dragon usually sleep on in fantasy games?", "Gold Coins", "A bunch of hay", "On the ground", 1);
             // Enemy
             Enemy Dragon = new Enemy("Dragon", 9, 1, "", true);
             // Loot

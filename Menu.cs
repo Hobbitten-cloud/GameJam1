@@ -106,9 +106,9 @@ namespace gamejam1
             Console.WriteLine("--------------------------------");
             Console.WriteLine();
             Console.Write("EXIT THE GAME BY PRESSING ANY KEY! ");
+            Console.ReadKey();
+            Console.WriteLine();
             Console.ResetColor();
-            
-            
         }
 
         public bool Question(Room playerRoom, int playerX, int playerY, Floor floor)
@@ -256,7 +256,7 @@ namespace gamejam1
 
                 // Render the minimap
                 int endX = 2;
-                int endY = 2;
+                int endY = 3;
 
                 Console.WriteLine();
                 Console.WriteLine("Minimap:");
@@ -295,7 +295,6 @@ namespace gamejam1
                     }
                     Console.WriteLine();
                 }
-
 
                 // Get user input
                 string userInput = "";

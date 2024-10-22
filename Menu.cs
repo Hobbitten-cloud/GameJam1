@@ -139,7 +139,7 @@ namespace gamejam1
                     Console.WriteLine();
                     Console.Write("Write here: ");
                     userInput = Console.ReadLine();
-                    Console.Clear();
+                    //Console.Clear();
 
                     // Try parsing the user input directly
                     if (int.TryParse(userInput, out selection) && selection > 0 && selection <= options.Count)
@@ -150,12 +150,10 @@ namespace gamejam1
                     {
                         // Invalid input handling
                         Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine();
                         Console.WriteLine("Ups! \nWrong input, please select a valid option.");
                         Console.ResetColor();
                         Console.WriteLine();
-                        Console.Write("Press any key to continue: ");
-                        Console.ReadKey();
-                        Console.Clear();
                     }
                 }
 
@@ -180,9 +178,6 @@ namespace gamejam1
                         Console.WriteLine("Ups! Something went wrong. Please try again.");
                         Console.ResetColor();
                         Console.WriteLine();
-                        Console.Write("Press any key to continue: ");
-                        Console.ReadKey();
-                        Console.Clear();
                         break;
                 }
             }

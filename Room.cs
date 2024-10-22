@@ -12,10 +12,13 @@ namespace gamejam1
 
         public string RoomId { get; }
 
-        public Room (Trial trial, string roomId)
+        public string Ca { get; set; }
+
+        public Room (Trial trial, string roomId, string ca)
         {
             Trial = trial;
             RoomId = roomId;
-        } 
+            Ca = ca;
+        }
     }
 }

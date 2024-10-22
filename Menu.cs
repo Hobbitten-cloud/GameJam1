@@ -93,8 +93,8 @@ namespace gamejam1
             {
                 Console.Clear();
 
-                int maxX = floor.Rooms.GetLength(0) - 1;  // Adjust max index for zero-based arrays
-                int maxY = floor.Rooms.GetLength(1) - 1;
+                int maxX = floor.Rooms.GetLength(0);  // Get the width of the room array
+                int maxY = floor.Rooms.GetLength(1);  // Get the height of the room array
 
                 // Display room info and options
                 Console.WriteLine();
@@ -111,7 +111,7 @@ namespace gamejam1
                 {
                     options.Add("Move Left");
                 }
-                if (playerX < maxX && floor.Rooms[playerX + 1, playerY] != null)
+                if (playerX < maxX - 1 && floor.Rooms[playerX + 1, playerY] != null)
                 {
                     options.Add("Move Right");
                 }
@@ -119,7 +119,7 @@ namespace gamejam1
                 {
                     options.Add("Move Up");
                 }
-                if (playerY < maxY && floor.Rooms[playerX, playerY + 1] != null)
+                if (playerY < maxY - 1 && floor.Rooms[playerX, playerY + 1] != null)
                 {
                     options.Add("Move Down");
                 }
@@ -128,6 +128,38 @@ namespace gamejam1
                 for (int i = 0; i < options.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}: {options[i]}");
+                }
+
+                // Render the minimap
+                Console.WriteLine();
+                Console.WriteLine("Minimap:");
+                for (int y = 0; y < maxY; y++)
+                {
+                    for (int x = 0; x < maxX; x++)
+                    {
+                        // Check if there's a room at the current position
+                        if (floor.Rooms[x, y] != null)
+                        {
+                            // Highlight the player's current position on the map
+                            if (x == playerX && y == playerY)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write("[P]");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                // Display room character
+                                Console.Write("[ ]"); // Replace this with floor.Rooms[x, y].Ca if needed
+                            }
+                        }
+                        else
+                        {
+                            // Render empty space where there's no room
+                            Console.Write("   ");
+                        }
+                    }
+                    Console.WriteLine();
                 }
 
                 // Get user input
@@ -140,7 +172,6 @@ namespace gamejam1
                     Console.WriteLine();
                     Console.Write("Write here: ");
                     userInput = Console.ReadLine();
-                    
 
                     // Try parsing the user input directly
                     if (int.TryParse(userInput, out selection) && selection > 0 && selection <= options.Count)
@@ -156,6 +187,7 @@ namespace gamejam1
                         Console.ResetColor();
                         Console.WriteLine();
                         Console.Write("Press any key to continue: ");
+                        Console.ReadKey();
                     }
                 }
 
@@ -186,6 +218,7 @@ namespace gamejam1
 
             return result;
         }
+
 
 
     }

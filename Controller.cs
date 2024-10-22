@@ -32,26 +32,34 @@ namespace gamejam1
 
         public void MoveRight()
         {
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "#";
             PlayerX++;
             PlayerRoom = FloorObjective.Rooms[PlayerX, PlayerY];
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "O";
         }
 
         public void MoveLeft()
         {
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "#";
             PlayerX--;
             PlayerRoom = FloorObjective.Rooms[PlayerX, PlayerY];
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "O";
         }
 
         public void MoveForward()
         {
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "#";
             PlayerY--;
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "O";
             PlayerRoom = FloorObjective.Rooms[PlayerX, PlayerY];
         }
 
         public void MoveBackward()
         {
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "#";
             PlayerY++;
             PlayerRoom = FloorObjective.Rooms[PlayerX, PlayerY];
+            FloorObjective.Rooms[PlayerX, PlayerY].Ca = "O";
         }
 
     }

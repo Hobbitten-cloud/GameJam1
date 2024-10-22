@@ -43,7 +43,7 @@ namespace gamejam1
 
 
             //Room 0,0 StartRoom
-            rooms[0, 0] = new Room(new Trial("Abe?", "Hands", null, null, null), "Room 0,0:");
+            rooms[0, 0] = new Room(new Trial("Abe?", "Hands", null, null, null), "Room 0,0:", "#");
 
             //Room 1
             // Question
@@ -52,7 +52,7 @@ namespace gamejam1
             Enemy skeleton = new Enemy("Skeleton", 5, 1, "", true);
             // Loot
             Loot loot1 = new Loot("Excalibur", "", false, 1, 1, 3, 2, 5);
-            rooms[1, 0] = new Room(new Trial("Abe?", "Hands", question1, skeleton, loot1), "Room 1,0:");
+            rooms[1, 0] = new Room(new Trial("Abe?", "Hands", question1, skeleton, loot1), "Room 1,0:", "#");
 
             //Room 2,1
             // Question
@@ -61,7 +61,7 @@ namespace gamejam1
             Enemy Zombie = new Enemy("Zombie", 8, 2, "", true);
             // Loot
             Loot loot2 = new Loot("Helmet", "", false, 2, 3, 2, 1, 2);
-            rooms[2, 1] = new Room(new Trial("Rotten Armory", "Heads", question2, Zombie, loot2), "Room 2,1:");
+            rooms[2, 1] = new Room(new Trial("Rotten Armory", "Heads", question2, Zombie, loot2), "Room 2,1:", "#");
 
             //Room 1,1
             // Question
@@ -70,7 +70,7 @@ namespace gamejam1
             Enemy Spider = new Enemy("Spider", 8, 2, "", true);
             // Loot
             Loot loot3 = new Loot("Spider Armor", "", false, 4, 5, 4, 2, 4);
-            rooms[1, 1] = new Room(new Trial("Sticky Situtation", "Legs", question3, Spider, loot3), "Room 1,1:");
+            rooms[1, 1] = new Room(new Trial("Sticky Situtation", "Legs", question3, Spider, loot3), "Room 1,1:", "#");
 
             //Room 0,1
             // Question
@@ -79,7 +79,7 @@ namespace gamejam1
             Enemy Vampire = new Enemy("Vampire", 15, 1, "", true);
             // Loot
             Loot loot4 = new Loot("Old Key", "", true, 0, 0, 0, 0, 0);
-            rooms[0, 1] = new Room(new Trial("A bloody tooth", "blood", question4, Vampire, loot4), "Room 0,1:");
+            rooms[0, 1] = new Room(new Trial("A bloody tooth", "blood", question4, Vampire, loot4), "Room 0,1:", "#");
 
             //Room 0,2
             // Question
@@ -88,7 +88,7 @@ namespace gamejam1
             Enemy Goblin = new Enemy("Goblin", 9, 1, "", true);
             // Loot
             Loot loot5 = new Loot("Bag of coins", "", true, 0, 0, 0, 0, 0);
-            rooms[0, 2] = new Room(new Trial("Too much loot!", "bagged", question5, Goblin, loot5), "Room 0,2:");
+            rooms[0, 2] = new Room(new Trial("Too much loot!", "bagged", question5, Goblin, loot5), "Room 0,2:", "#");
 
             //Room 2,2
             // Question
@@ -97,7 +97,7 @@ namespace gamejam1
             Enemy Dragon = new Enemy("Dragon", 9, 1, "", true);
             // Loot
             Loot loot6 = new Loot("A dragon stone", "", true, 0, 0, 0, 0, 0);
-            rooms[2, 2] = new Room(new Trial("Giant beast", "Beast slayer", question6, Dragon, loot6), "Room 2,2:");
+            rooms[2, 2] = new Room(new Trial("Giant beast", "Beast slayer", question6, Dragon, loot6), "Room 2,2:", "#");
 
 
             Controller controller = new Controller(new Menu(), new Floor(0, rooms), bob);

@@ -18,7 +18,7 @@ namespace gamejam1
             // Player
             Player bob = new Player("bob", 10, "sword", "", true, 10, 10, 5, 2, 1, 2);
 
-            Room[,] rooms = new Room[3, 3];
+            Room[,] rooms = new Room[3, 4];
 
 
             /*
@@ -32,13 +32,15 @@ namespace gamejam1
                 0,2 = Room 0.2 = Goblin enemy
                 1,1 = Room 1.1 = Spider enemy
                 2,1 = Room 2.1 = Zombie enemy
-                2,2 = Room 2.2 = Dragon enemy = FINAL ROOM
+                2,2 = Room 2.2 = Dragon enemy
+                2,3 = Room 2.3 = FINAL ROOM
 
                 rest = null
 
                 0,0 : 1,0 : 2,0
                 0,1 : 1,1 : 2,1
                 0,2 : 1,2 : 2,2
+                0,3 : 1,3 : 2,3
 
             */
 
@@ -99,6 +101,15 @@ namespace gamejam1
             // Loot
             Loot loot6 = new Loot("A dragon stone", "", true, 0, 0, 0, 0, 0);
             rooms[2, 2] = new Room(new Trial("Giant beast", "Beast slayer", question6, Dragon, loot6), "Room 2,2:", "#");
+
+            //Room 2,3 - EXIT ROOM
+            // Question
+            Quiz question7 = new Quiz("Who is the youngest teacher?", "Orhan", "Jan", "Lars", 1);
+            // Enemy
+            Enemy Teacher = new Enemy("Teacher", 30, 30, "", true); 
+            // Loot
+            Loot loot7 = new Loot("A BIG BRAIN", "", true, 20, 20, 20, 20, 20);
+            rooms[2, 3] = new Room(new Trial("A hard study lesson", "Books", question7, Dragon, loot7), "Room 2,3:", "#");
 
 
             Controller controller = new Controller(new Menu(), new Floor(0, rooms), bob);

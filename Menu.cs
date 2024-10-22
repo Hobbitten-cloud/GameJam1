@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Net.Quic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -90,136 +92,104 @@ namespace gamejam1
             string result = "";
             while (result == "")
             {
-                // Path selection - Left, Right, Forward, Backward
-                Console.WriteLine();
-                Console.WriteLine("You are here " + playerRoom.RoomId);
-                Console.WriteLine();
-                Console.Write("Select your path");
-                Console.WriteLine();
-                Console.WriteLine("1: Move Left");
-                Console.WriteLine("2: Move Right");
-                Console.WriteLine("3: Move Forward");
-                Console.WriteLine("4: Move Backward");
-                Console.WriteLine();
-                Console.Write("Write here: ");
-                string userInput = Console.ReadLine();
-                Console.Clear();
+                int maxX = floor.Rooms.GetLength(0) - 1;  // Adjust max index for zero-based arrays
+                int maxY = floor.Rooms.GetLength(1) - 1;
 
+                // Display room info and options
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("You are here in Room: " + playerRoom.RoomId);
+                Console.ResetColor();
+                Console.WriteLine();
+                Console.WriteLine("Select your path:");
 
-                int maxX = floor.Rooms.GetLength(0);
-                int maxY = floor.Rooms.GetLength(1);
+                // Create a list of available options
+                List<string> options = new List<string>();
 
-                // switch case based of the userinput
-                switch (userInput)
+                if (playerX > 0 && floor.Rooms[playerX - 1, playerY] != null)
                 {
-
-                    case "1":
-                        {
-                            // Left
-                            if (playerX > 0 && floor.Rooms[playerX - 1, playerY] != null)
-                            {
-                                result = "MoveLeft";
-                            }
-                            else
-                            {
-                                // Incase the user makes a miss input
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Ups! \nWrong input, Room location does not exist");
-                                Console.WriteLine("There is no room to your left");
-                                Console.ResetColor();
-                                Console.WriteLine();
-                                Console.Write("Press any key to continue: ");
-                                Console.ReadKey();
-                                Console.Clear();
-                            }
-                            break;
-                        }
-                    case "2":
-                        {
-                            // Right
-                            if (playerX < maxX && floor.Rooms[playerX + 1, playerY] != null)
-                            {
-                                result = "MoveRight";
-                            }
-                            else
-                            {
-                                // Incase the user makes a miss input
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Ups! \nWrong input, Room location does not exist");
-                                Console.WriteLine("There is no room to your right");
-                                Console.ResetColor();
-                                Console.WriteLine();
-                                Console.Write("Press any key to continue: ");
-                                Console.ReadKey();
-                                Console.Clear();
-                            }
-                            break;
-
-                        }
-                    case "3":
-                        {
-                            // Forward
-                            if (playerY > 0 && floor.Rooms[playerX, playerY - 1] != null)
-                            {
-                                result = "MoveForward";
-                            }
-                            else
-                            {
-                                // Incase the user makes a miss input
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Ups! \nWrong input, Room location does not exist");
-                                Console.WriteLine("There is no room infront of you");
-                                Console.ResetColor();
-                                Console.WriteLine();
-                                Console.Write("Press any key to continue: ");
-                                Console.ReadKey();
-                                Console.Clear();
-                            }
-                            break;
-
-                        }
-                    case "4":
-                        {
-                            // Backward
-                            if (playerX < maxY && floor.Rooms[playerX, playerY + 1] != null)
-                            {
-                                result = "MoveBackward";
-                            }
-                            else
-                            {
-                                // Incase the user makes a miss input
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Ups! \nWrong input, Room location does not exist");
-                                Console.WriteLine("There is no room behind you");
-                                Console.ResetColor();
-                                Console.WriteLine();
-                                Console.Write("Press any key to continue: ");
-                                Console.ReadKey();
-                                Console.Clear();
-
-                            }
-                            break;
-                            
-                        }
-                    default:
-                        {
-                            // Incase the user makes a miss input
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Ups! \nWrong input, please select again");
-                            Console.ResetColor();
-                            Console.WriteLine();
-                            Console.Write("Press any key to continue: ");
-                            Console.ReadKey();
-                            Console.Clear();
-
-                            break;
-                        }
-
-
+                    options.Add("Move Left");
+                }
+                if (playerX < maxX && floor.Rooms[playerX + 1, playerY] != null)
+                {
+                    options.Add("Move Right");
+                }
+                if (playerY > 0 && floor.Rooms[playerX, playerY - 1] != null)
+                {
+                    options.Add("Move Forward");
+                }
+                if (playerY < maxY && floor.Rooms[playerX, playerY + 1] != null)
+                {
+                    options.Add("Move Backward");
                 }
 
+                // Show the options to the player
+                for (int i = 0; i < options.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}: {options[i]}");
+                }
+
+                // Get user input
+                string userInput = "";
+                int selection = 0; // Initialized to avoid unassigned variable error
+                bool validInput = false;
+
+                while (!validInput)
+                {
+                    Console.WriteLine();
+                    Console.Write("Write here: ");
+                    userInput = Console.ReadLine();
+                    Console.Clear();
+
+                    // Try parsing the user input directly
+                    if (int.TryParse(userInput, out selection) && selection > 0 && selection <= options.Count)
+                    {
+                        validInput = true; // Input is valid, exit the loop
+                    }
+                    else
+                    {
+                        // Invalid input handling
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Ups! \nWrong input, please select a valid option.");
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        Console.Write("Press any key to continue: ");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                }
+
+                // Switch based on the valid input selection
+                switch (options[selection - 1])  // `-1` because `selection` is 1-based
+                {
+                    case "Move Left":
+                        result = "MoveLeft";
+                        break;
+                    case "Move Right":
+                        result = "MoveRight";
+                        break;
+                    case "Move Forward":
+                        result = "MoveForward";
+                        break;
+                    case "Move Backward":
+                        result = "MoveBackward";
+                        break;
+                    default:
+                        // Fallback in case something unexpected happens (this should not happen due to validation)
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Ups! Something went wrong. Please try again.");
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        Console.Write("Press any key to continue: ");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                }
             }
+
             return result;
         }
+
+
     }
 }

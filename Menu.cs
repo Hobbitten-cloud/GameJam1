@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
 using System.Linq;
@@ -106,8 +107,8 @@ namespace gamejam1
             Console.WriteLine();
             Console.Write("EXIT THE GAME BY PRESSING ANY KEY! ");
             Console.ResetColor();
-            Console.ReadKey();
-            Environment.Exit(0);
+            
+            
         }
 
         public bool Question(Room playerRoom, int playerX, int playerY, Floor floor)
@@ -254,6 +255,9 @@ namespace gamejam1
                 }
 
                 // Render the minimap
+                int endX = 2;
+                int endY = 2;
+
                 Console.WriteLine();
                 Console.WriteLine("Minimap:");
                 for (int y = 0; y < maxY; y++)
@@ -266,8 +270,15 @@ namespace gamejam1
                             // Highlight the player's current position on the map
                             if (x == playerX && y == playerY)
                             {
-                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.ForegroundColor = ConsoleColor.Red; // Player color
                                 Console.Write("[P]");
+                                Console.ResetColor();
+                            }
+                            // Highlight the endpoint on the map
+                            else if (x == endX && y == endY)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green; // Endpoint color (change as desired)
+                                Console.Write("[E]"); // E for endpoint
                                 Console.ResetColor();
                             }
                             else
@@ -284,6 +295,7 @@ namespace gamejam1
                     }
                     Console.WriteLine();
                 }
+
 
                 // Get user input
                 string userInput = "";

@@ -43,10 +43,8 @@ namespace gamejam1
             Console.WriteLine();
             Console.Write("Write here: ");
             string userInput = Console.ReadLine().ToLower();
-            //Console.Clear();
 
-            // switch case based of the userinput
-            
+                // switch case based of the userinput
                 switch (userInput)
                 {
                     case "1":
@@ -68,16 +66,31 @@ namespace gamejam1
                         {
                             result = "Quit";
                             // Quits the program
-                            break;
-                        }
-                    default:
-                        {
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine("YOU ARE STUCK HERE!");
+                            Console.WriteLine("YOU CANNOT ESCAPE THE SIMULATION");
+                            Console.WriteLine("COMPLETE THE GAME TO ESCAPE!");
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine();
+                            Console.Write("RETURN TO THE GAME BY PRESSING ANY KEY! ");
+                            Console.ResetColor();
+                            Console.ReadKey();
+
+                            //Environment.Exit(0);                   
+                            break;                                   
+                        }                                            
+                    default:                                         
+                        {                                            
                             // Incase the user makes a miss input
+                            Console.WriteLine();
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Ups! \nWrong input, please select again");
                             Console.ResetColor();
                             Console.WriteLine();
-                            
+                            Console.Write("Press any key to continue: ");
+                            Console.ReadKey();
 
                             break;
                         }

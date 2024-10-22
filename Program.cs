@@ -26,9 +26,13 @@ namespace gamejam1
                 --------
                 
                 0,0 = start room
-                1,0 = Room 1
-                2,0 = Room 2
-                1,1 = Room 3
+                0.1 = Room 0.1
+                1,0 = Room 1.0
+                0,2 = Room 0.2
+                1,1 = Room 1.1
+                
+                2,1 = Room 2.1
+                2,2 = Room 2.2
                 rest = null
 
 
@@ -58,16 +62,43 @@ namespace gamejam1
             Enemy Zombie = new Enemy("Zombie", 8, 2, "", true);
             // Loot
             Loot loot2 = new Loot("Helmet", "", false, 2, 3, 2, 1, 2);
-            rooms[2, 0] = new Room(new Trial("Rotten Armory", "Heads", question2, Zombie, loot2), "Room 0,1:");
+            rooms[2, 1] = new Room(new Trial("Rotten Armory", "Heads", question2, Zombie, loot2), "Room 2,1:");
 
             //Room 3
             // Question
-            Quiz question3 = new Quiz("What is a string?", "Food", "An animal", "A code part", 3);
+            Quiz question3 = new Quiz("What is an integer?", "A monkey?", "A way to show text", "A way to show numbers", 3);
             // Enemy
             Enemy Spider = new Enemy("Spider", 8, 2, "", true);
             // Loot
             Loot loot3 = new Loot("Spider Armor", "", false, 4, 5, 4, 2, 4);
             rooms[1, 1] = new Room(new Trial("Sticky Situtation", "Legs", question3, Spider, loot3), "Room 1,1:");
+
+            //Room 4
+            // Question
+            Quiz question4 = new Quiz("What is a vampires weakness", "Silver", "Gold", "Bronze", 1);
+            // Enemy
+            Enemy Vampire = new Enemy("Vampire", 15, 1, "", true);
+            // Loot
+            Loot loot4 = new Loot("Old Key", "", true, 0, 0, 0, 0, 0);
+            rooms[0, 1] = new Room(new Trial("A bloody tooth", "blood", question4, Vampire, loot4), "Room 0,1:");
+
+            //Room 5
+            // Question
+            Quiz question5 = new Quiz("Who is the god of the underworld in greek mythology", "Poseidon", "Hades", "Apollo", 2);
+            // Enemy
+            Enemy Goblin = new Enemy("Goblin", 9, 1, "", true);
+            // Loot
+            Loot loot5 = new Loot("Bag of coins", "", true, 0, 0, 0, 0, 0);
+            rooms[0, 2] = new Room(new Trial("Too much loot!", "bagged", question5, Goblin, loot5), "Room 0,2:");
+
+            //Room 6
+            // Question
+            Quiz question6 = new Quiz("Who is the god of the underworld in greek mythology", "Poseidon", "Hades", "Apollo", 2);
+            // Enemy
+            Enemy Dragon = new Enemy("Dragon", 9, 1, "", true);
+            // Loot
+            Loot loot6 = new Loot("A dragon stone", "", true, 0, 0, 0, 0, 0);
+            rooms[0, 2] = new Room(new Trial("Giant beast", "Beast slayer", question6, Dragon, loot6), "Room 2,1:");
 
 
             Controller controller = new Controller(new Menu(), new Floor(0, rooms), bob);

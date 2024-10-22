@@ -148,6 +148,10 @@ namespace gamejam1
 
             while (startGame)
             {
+                if (controller.PlayerX == 2 && controller.PlayerY == 2)
+                {
+                    startGame = false;
+                }
                 while (!(controller.Menu.Question(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective)))
                 {
                 }
@@ -180,8 +184,9 @@ namespace gamejam1
                         }
 
                 }
-
+                
             }
+            
 
         }
     }

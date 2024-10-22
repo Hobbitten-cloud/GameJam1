@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Drawing;
 using System.Linq;
 using System.Net.Quic;
 using System.Text;
@@ -15,23 +16,23 @@ namespace gamejam1
             string result = "";
             while (result == "")
             {
-            Console.Clear();
+                Console.Clear();
 
-            // Main title of the game
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("WELCOME TO THE AMAZING JOURNEY OF RPG WILDNESS");
-            Console.WriteLine("----------------------------------------------");
-            Console.ResetColor();
+                // Main title of the game
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("----------------------------------------------");
+                Console.WriteLine("WELCOME TO THE AMAZING JOURNEY OF RPG WILDNESS");
+                Console.WriteLine("----------------------------------------------");
+                Console.ResetColor();
 
-            // Backstory 
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Backstory:");
-            Console.WriteLine("----------");
-            Console.ResetColor();
-            Console.WriteLine("You just got yourself a new dungeon RPG game. You decided to play it and where you meet enemies and puzzles.");
-            Console.WriteLine("But suddenly the game wont close and you are trapped. You need to find a way out of this simulation");
+                // Backstory 
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Backstory:");
+                Console.WriteLine("----------");
+                Console.ResetColor();
+                Console.WriteLine("You just got yourself a new dungeon RPG game. You decided to play it and where you meet enemies and puzzles.");
+                Console.WriteLine("But suddenly the game wont close and you are trapped. You need to find a way out of this simulation");
 
             // Menu questions
             Console.WriteLine();
@@ -44,7 +45,8 @@ namespace gamejam1
             Console.Write("Write here: ");
             string userInput = Console.ReadLine().ToLower();
 
-                // switch case based of the userinput
+            // switch case based of the userinput
+            
                 switch (userInput)
                 {
                     case "1":
@@ -89,13 +91,91 @@ namespace gamejam1
                             Console.WriteLine("Ups! \nWrong input, please select again");
                             Console.ResetColor();
                             Console.WriteLine();
-                            Console.Write("Press any key to continue: ");
-                            Console.ReadKey();
+                            
 
                             break;
                         }
                 }
             }
+            return result;
+        }
+
+        public bool Question(Room playerRoom, int playerX, int playerY, Floor floor)
+        {
+            bool result = false;
+            while (result == false)
+            {
+                Console.Clear();
+
+                Quiz quiz = floor.Rooms[playerX, playerY].Trial.Quiz;
+                if (quiz == null)
+                {
+                    Console.WriteLine("No quiz available in this room.");
+                    // Handle accordingly, e.g., return or set a default result
+                    return true;
+                }
+
+                Console.WriteLine(quiz.Spørgmål);
+
+                // Create a list of available options
+                List<string> answers = new List<string>
+        {
+            quiz.Svar_1,
+            quiz.Svar_2,
+            quiz.Svar_3
+        };
+
+                // Show all options
+                for (int i = 0; i < answers.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}: {answers[i]}");
+                }
+
+                // Get user input
+                string userInput = "";
+                int selection = 0;
+                bool validInput = false;
+
+                while (!validInput)
+                {
+                    Console.WriteLine();
+                    Console.Write("Write here: ");
+                    userInput = Console.ReadLine();
+
+                    if (int.TryParse(userInput, out selection) && selection > 0 && selection <= answers.Count)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Oops! Wrong input, please select a valid option.");
+                        Console.ResetColor();
+                        Console.WriteLine("Press any key to try again...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine(quiz.Spørgmål);
+                        for (int i = 0; i < answers.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}: {answers[i]}");
+                        }
+                    }
+                }
+
+                // Switch based on the valid input selection
+                string selectedAnswer = answers[selection - 1];
+                
+                if (quiz.Rigtigsvar == selection)
+                {
+                    result = true;
+                }else
+                {
+                    result = false;
+                }
+                
+                 
+            }
+            
             return result;
         }
 
@@ -105,6 +185,30 @@ namespace gamejam1
             while (result == "")
             {
                 Console.Clear();
+                
+
+                // Create a list of available options
+                List<string> awnsers = new List<string>();
+
+                // Add quiz options if a trial exists in the current room
+                if (floor.Rooms[playerX, playerY].Trial.Quiz != null)
+                {
+
+                    // Display the question
+                    Console.WriteLine(floor.Rooms[playerX, playerY].Trial.Quiz.Spørgmål);
+                    // Add quiz options
+                    awnsers.Add(floor.Rooms[playerX, playerY].Trial.Quiz.Svar_1);
+                    awnsers.Add(floor.Rooms[playerX, playerY].Trial.Quiz.Svar_2);
+                    awnsers.Add(floor.Rooms[playerX, playerY].Trial.Quiz.Svar_3);
+
+                    
+
+                    // Show all options including movement and quiz answers
+                    for (int i = 0; i < awnsers.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}: {awnsers[i]}");
+                    }
+                }
 
                 int maxX = floor.Rooms.GetLength(0);  // Get the width of the room array
                 int maxY = floor.Rooms.GetLength(1);  // Get the height of the room array
@@ -137,11 +241,15 @@ namespace gamejam1
                     options.Add("Move Down");
                 }
 
-                // Show the options to the player
+
+
+                // Show the available movement options
                 for (int i = 0; i < options.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}: {options[i]}");
                 }
+
+
 
                 // Render the minimap
                 Console.WriteLine();
@@ -177,7 +285,7 @@ namespace gamejam1
 
                 // Get user input
                 string userInput = "";
-                int selection = 0; // Initialized to avoid unassigned variable error
+                int selection = 0; // Initialize to avoid unassigned variable error
                 bool validInput = false;
 
                 while (!validInput)
@@ -203,7 +311,7 @@ namespace gamejam1
                 }
 
                 // Switch based on the valid input selection
-                switch (options[selection - 1])  // `-1` because `selection` is 1-based
+                switch (options[selection - 1])
                 {
                     case "Move Left":
                         result = "MoveLeft";
@@ -218,17 +326,14 @@ namespace gamejam1
                         result = "MoveDown";
                         break;
                     default:
-                        // Fallback in case something unexpected happens (this should not happen due to validation)
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Ups! Something went wrong. Please try again.");
-                        Console.ResetColor();
-                        Console.WriteLine();
+                        result = options[selection - 1]; // Handles quiz options
                         break;
                 }
             }
 
             return result;
         }
+
 
 
 

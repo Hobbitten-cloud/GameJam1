@@ -143,12 +143,14 @@ namespace gamejam1
 
             while (startGame)
             {
+                
+                while (!(controller.Menu.Question(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective)))
+                {
+                }
                 if (controller.PlayerX == 2 && controller.PlayerY == 2)
                 {
                     startGame = false;
-                }
-                while (!(controller.Menu.Question(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective)))
-                {
+                    break;
                 }
                 // switch case based of the userinput
                 switch (controller.Menu.PathSelectionMenu(controller.PlayerRoom, controller.PlayerX, controller.PlayerY, controller.FloorObjective))

@@ -106,8 +106,8 @@ namespace gamejam1
             Console.WriteLine();
             Console.Write("EXIT THE GAME BY PRESSING ANY KEY! ");
             Console.ResetColor();
-            Console.ReadKey();
-            Environment.Exit(0);
+            
+            
         }
 
         public bool Question(Room playerRoom, int playerX, int playerY, Floor floor)
